@@ -19,12 +19,11 @@ RUN pip install --no-cache-dir -r requirements.txt
 # 5. Copy the rest of the application code
 COPY . .
 
-# 6. Initialize and build the Reflex app
-RUN reflex init
+# 6. export the frontend at build time only
 RUN reflex export --frontend-only --no-zip
 
 # 7. Expose the port Reflex uses
 EXPOSE 8000
 
-# 8. Start the application with explicit ports and production flags
-CMD ["reflex", "run", "--env", "prod", "--backend-port", "8000", "--frontend-port", "3000"]
+# 8. Run backend only - Render handles one port
+CMD reflex run --env prod --backend-only --backend-port ${PORT:-8000}

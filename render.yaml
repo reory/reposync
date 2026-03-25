@@ -1,0 +1,19 @@
+services:
+  # BACKEND: Python/WebSocket server
+  - type: web
+    name: reposync-backend
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: PYTHONUNBUFFERED
+        value: "1"
+
+  # FRONTEND: Static site (exported Next.js build)
+  - type: web
+    name: reposync-frontend
+    runtime: static
+    buildCommand: pip install reflex==0.8.28.post1 && reflex export --frontend-only --no-zip
+    staticPublishPath: .web/out
+    envVars:
+      - key: REFLEX_BACKEND_URL
+        value: https://reposync-backend.onrender.com
