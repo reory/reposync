@@ -27,5 +27,5 @@ RUN reflex export --frontend-only --no-zip
 EXPOSE 8000
 EXPOSE 3000
 
-# 8. Start the application
-CMD ["reflex", "run", "--env", "prod", "--backend-port", "8000"]
+# 8. Start the application with explicit ports and production flags
+CMD ["reflex", "run", "--env", "prod", "--frontend-port", "3000", "--backend-port", "8000"]
