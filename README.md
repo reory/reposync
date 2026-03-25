@@ -85,4 +85,13 @@ class State(rx.State):
 
 - [ ] Caching: Save the GitHub data to a local SQLite database so the page loads instantly even before the user hits "Sync."
 
+---
+
+# Notes
+Any issues with the code please feel free to reach out to me.
+Cheers 😁
+
+---
+
 * **Built by Roy Peters**
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Roy%20Peters-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/roy-p-74980b382/)
