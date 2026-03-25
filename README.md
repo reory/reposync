@@ -85,6 +85,8 @@ class State(rx.State):
 
 - [ ] Caching: Save the GitHub data to a local SQLite database so the page loads instantly even before the user hits "Sync."
 
+- [ ] Deploy the app.
+
 ---
 
 # Notes
