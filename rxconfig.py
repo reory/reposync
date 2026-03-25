@@ -7,7 +7,7 @@ app_url = os.getenv("REFLEX_BACKEND_URL", "http://localhost:8000")
 
 config = rx.Config(
     app_name="reposync",
-    api_url=app_url,  # THIS IS THE MISSING LINK
+    api_url="https://reposync.onrender.com",
     plugins=[
         rx.plugins.SitemapPlugin(),
         rx.plugins.TailwindV4Plugin(),
