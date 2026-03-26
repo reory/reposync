@@ -26,7 +26,6 @@ Pygments==2.19.2
 python-engineio==4.13.1
 python-multipart==0.0.22
 python-socketio==5.16.1
-redis==7.4.0
 reflex==0.8.28.post1
 reflex-hosting-cli==0.1.62
 requests==2.33.0

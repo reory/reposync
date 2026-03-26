@@ -1,5 +1,6 @@
 import reflex as rx
 import requests
+import os
 
 # THE STATE: Pure GitHub Logic
 class State(rx.State):
@@ -17,7 +18,8 @@ class State(rx.State):
         try:
             # Fetching your real-time GitHub data
             url = f"https://api.github.com/users/{self.github_username}/repos?sort=updated"
-            res = requests.get(url)
+            headers = {"Authorization": f"token {os.getenv('GITHUB_TOKEN', '')}"}
+            res = requests.get(url, headers=headers)
             if res.status_code == 200:
                 self.projects = [
                     {
