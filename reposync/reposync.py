@@ -1,11 +1,14 @@
+import os
+import traceback
+
 import reflex as rx
 import requests
-import os
+
 
 # THE STATE: Pure GitHub Logic
 class State(rx.State):
     github_username: str = "reory" 
-    projects: list[dict] = []
+    projects: list[dict] = [] # noqa: RUF012
     search_text: str = ""
     is_loading: bool = False
 
@@ -32,7 +35,9 @@ class State(rx.State):
                     for r in res.json() if not r["fork"]
                 ]
         except Exception as e:
-            print(f"Error: {e}")
+            print(f"Error: {e}", exc_info=True)
+            traceback.print_exc()
+            raise
         self.is_loading = False
 
     @rx.var
